@@ -35,5 +35,5 @@ app.set('view options', {
 
 app.set('port', PORT);
 app.listen(PORT, () => {
-    log.LogConsole(`Server is running at URL http://localhost:${PORT}`);
+    console.log(`Server is running at URL http://localhost:${PORT}`);
 });
