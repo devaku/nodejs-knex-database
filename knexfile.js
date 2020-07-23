@@ -3,10 +3,31 @@ module.exports = {
     development: {
         client: 'mysql',
         connection: {
-            host: 'localhost',
+            // host: 'localhost',
+            // user: 'root',
+            // password: '',
+            // database: 'nodejs_knex_database',
+
+            // host: process.env.DB_HOST,
+            // user: 'root',
+            // password: process.env.DB_PASSWORD,
+            // database: 'nodejs_knex_database',
+
+            host: process.env.DB_HOST,
             user: 'root',
-            password: '',
-            database: 'knex_database',
+            password: process.env.DB_PASSWORD,
+            database: process.env.DB_NAME,
+
+            // host: process.env.DB_HOST,
+            // user: process.env.DB_USERNAME,
+            // password: process.env.DB_PASSWORD,
+            // database: process.env.DB_NAME,
+        },
+        migrations: {
+            directory: './lib_modules/migrations',
+        },
+        seeds: {
+            directory: './lib_modules/seeds',
         },
     },
 

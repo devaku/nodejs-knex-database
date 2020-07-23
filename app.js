@@ -24,6 +24,30 @@ app.use(
     })
 );
 
+const session = require('express-session');
+const KnexSessionStore = require('connect-session-knex')(session);
+
+const knexConfig = require('./knexfile.js').development;
+
+console.log(knexConfig);
+
+const knex = require('knex')(knexConfig);
+const store = new KnexSessionStore({
+    knex,
+    tablename: 'sessions', // optional. Defaults to 'sessions'
+});
+
+// Session system
+app.use(
+    session({
+        secret: 'dragons',
+        cookie: {
+            maxAge: 10000, // ten seconds, for testing
+        },
+        store,
+    })
+);
+
 //Set routes
 routes(app);
 
