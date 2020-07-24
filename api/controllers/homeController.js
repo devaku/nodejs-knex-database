@@ -3,9 +3,21 @@ const router = express.Router();
 const storeModule = require('../../lib_modules/store.js');
 
 router.get('/', async function (req, res) {
+    const n = req.session.views || 0;
+    req.session.views = n + 1;
+    console.log('VIEWS');
+    console.log(req.session.views);
     res.render('home', {
         title: 'THIS IS A TITLE',
         message: 'THIS IS A MESSAGE',
+    });
+});
+
+router.get('/destroy', async function (req, res) {
+    req.destroy();
+    res.json({
+        status: 'success',
+        message: 'destroyed',
     });
 });
 

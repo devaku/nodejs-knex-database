@@ -20,7 +20,7 @@ module.exports = {
         console.log(`Authenticating user ${username}`);
 
         // Get the user row from the database
-        let returnedRows = await knex('user').where({ username });
+        let returnedRows = await knex('user').where({ username }).debug();
         let userRow = returnedRows[0];
         if (userRow) {
             if (!userRow) {
