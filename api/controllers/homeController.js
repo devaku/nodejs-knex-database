@@ -13,6 +13,13 @@ router.get('/', async function (req, res) {
     });
 });
 
+router.get('/redirect', async function (req, res) {
+    // res.json({
+    //     status: 'success',
+    // });
+    res.redirect('/');
+});
+
 router.get('/destroy', async function (req, res) {
     req.destroy();
     res.json({

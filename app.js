@@ -1,6 +1,7 @@
 //Load Development Variables
 if (process.env.NODE_ENV === undefined) {
     require('dotenv').config();
+    console.log(require('dotenv').config());
 }
 
 const PORT = process.env.PORT;
